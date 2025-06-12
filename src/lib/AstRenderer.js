@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 import getUniqueID from './util/getUniqueID';
-import convertAdditionalStyles from './util/convertAdditionalStyles';
 
 import textStyleProps from './data/textStyleProps';
 
@@ -118,7 +117,8 @@ export default class AstRenderer {
           parentNodes[a].attributes.style &&
           typeof parentNodes[a].attributes.style === 'string'
         ) {
-          refStyle = convertAdditionalStyles(parentNodes[a].attributes.style);
+          // we don't want to support CSS styles for now
+          // refStyle = convertAdditionalStyles(parentNodes[a].attributes.style);
         }
 
         // combine in specific styles for the object

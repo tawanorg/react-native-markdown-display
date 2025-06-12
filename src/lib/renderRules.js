@@ -1,15 +1,15 @@
 import React from 'react';
 import {
+  Platform,
+  StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
-  Platform,
-  StyleSheet,
 } from 'react-native';
-import FitImage from 'react-native-fit-image';
+// import FitImage from 'react-native-fit-image';
 
-import openUrl from './util/openUrl';
 import hasParents from './util/hasParents';
+import openUrl from './util/openUrl';
 
 import textStyleProps from './data/textStyleProps';
 
@@ -262,42 +262,42 @@ const renderRules = {
   ),
 
   // Images
-  image: (
-    node,
-    children,
-    parent,
-    styles,
-    allowedImageHandlers,
-    defaultImageHandler,
-  ) => {
-    const {src, alt} = node.attributes;
+  // image: (
+  //   node,
+  //   children,
+  //   parent,
+  //   styles,
+  //   allowedImageHandlers,
+  //   defaultImageHandler,
+  // ) => {
+  //   const {src, alt} = node.attributes;
 
-    // we check that the source starts with at least one of the elements in allowedImageHandlers
-    const show =
-      allowedImageHandlers.filter((value) => {
-        return src.toLowerCase().startsWith(value.toLowerCase());
-      }).length > 0;
+  //   // we check that the source starts with at least one of the elements in allowedImageHandlers
+  //   const show =
+  //     allowedImageHandlers.filter((value) => {
+  //       return src.toLowerCase().startsWith(value.toLowerCase());
+  //     }).length > 0;
 
-    if (show === false && defaultImageHandler === null) {
-      return null;
-    }
+  //   if (show === false && defaultImageHandler === null) {
+  //     return null;
+  //   }
 
-    const imageProps = {
-      indicator: true,
-      key: node.key,
-      style: styles._VIEW_SAFE_image,
-      source: {
-        uri: show === true ? src : `${defaultImageHandler}${src}`,
-      },
-    };
+  //   const imageProps = {
+  //     indicator: true,
+  //     key: node.key,
+  //     style: styles._VIEW_SAFE_image,
+  //     source: {
+  //       uri: show === true ? src : `${defaultImageHandler}${src}`,
+  //     },
+  //   };
 
-    if (alt) {
-      imageProps.accessible = true;
-      imageProps.accessibilityLabel = alt;
-    }
+  //   if (alt) {
+  //     imageProps.accessible = true;
+  //     imageProps.accessibilityLabel = alt;
+  //   }
 
-    return <FitImage {...imageProps} />;
-  },
+  //   return <FitImage {...imageProps} />;
+  // },
 
   // Text Output
   text: (node, children, parent, styles, inheritedStyles = {}) => (

@@ -3,37 +3,37 @@
  * @author Mient-jan Stelling + contributors
  */
 
-import React, {useMemo} from 'react';
-import {Text, StyleSheet} from 'react-native';
+import MarkdownIt from 'markdown-it';
 import PropTypes from 'prop-types';
+import React, {useMemo} from 'react';
+import {StyleSheet, Text} from 'react-native';
+import AstRenderer from './lib/AstRenderer';
 import parser from './lib/parser';
+import renderRules from './lib/renderRules';
+import {styles} from './lib/styles';
 import getUniqueID from './lib/util/getUniqueID';
 import hasParents from './lib/util/hasParents';
 import openUrl from './lib/util/openUrl';
-import tokensToAST from './lib/util/tokensToAST';
-import renderRules from './lib/renderRules';
-import AstRenderer from './lib/AstRenderer';
-import MarkdownIt from 'markdown-it';
 import removeTextStyleProps from './lib/util/removeTextStyleProps';
-import {styles} from './lib/styles';
 import {stringToTokens} from './lib/util/stringToTokens';
-import FitImage from 'react-native-fit-image';
+import tokensToAST from './lib/util/tokensToAST';
+// import FitImage from 'react-native-fit-image';
 import textStyleProps from './lib/data/textStyleProps';
 
 export {
-  getUniqueID,
-  openUrl,
-  hasParents,
-  renderRules,
   AstRenderer,
-  parser,
-  stringToTokens,
-  tokensToAST,
+  getUniqueID,
+  hasParents,
   MarkdownIt,
-  styles,
+  openUrl,
+  parser,
   removeTextStyleProps,
-  FitImage,
+  renderRules,
+  stringToTokens,
+  styles,
+  // FitImage,
   textStyleProps,
+  tokensToAST,
 };
 
 // we use StyleSheet.flatten here to make sure we have an object, in case someone
